@@ -15,6 +15,7 @@
 
 #define PORT_HIGH  0xFFFFFFFF
 #define PORT_LOW   0x00000000
+#define PORT_TOG   0xAAAAAAAA
 
 #define GPIOA   0
 #define GPIOB   1

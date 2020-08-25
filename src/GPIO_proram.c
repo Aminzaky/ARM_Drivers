@@ -66,9 +66,9 @@ void GPIO_VidSetPinValue( u8 Copy_u8Pin , u8 u8Copy_u8Value) {
 	if (Copy_u8Pin >= PINA0 && Copy_u8Pin <= PINA15) {
 
 		if (u8Copy_u8Value == GPIO_HIGH) {
-			SET_BIT(GPIOA_ODR, (Copy_u8Pin%16) );
+			GPIOA_BSR = 1 << (Copy_u8Pin%16) ;
 		} else if (u8Copy_u8Value == GPIO_LOW) {
-			CLR_BIT(GPIOA_ODR, (Copy_u8Pin%16) );
+			GPIOA_BRR = 1 << (Copy_u8Pin%16) ;
 		} else if (u8Copy_u8Value == GPIO_TOG) {
 			TOG_BIT(GPIOA_ODR, (Copy_u8Pin%16) );
 		}
@@ -78,9 +78,9 @@ void GPIO_VidSetPinValue( u8 Copy_u8Pin , u8 u8Copy_u8Value) {
 	if (Copy_u8Pin >= PINB0 && Copy_u8Pin <= PINB15) {
 
 		if (u8Copy_u8Value == GPIO_HIGH) {
-			SET_BIT(GPIOB_ODR, (Copy_u8Pin%16) );
+			GPIOB_BSR = 1 << (Copy_u8Pin%16) ;
 		} else if (u8Copy_u8Value == GPIO_LOW) {
-			CLR_BIT(GPIOB_ODR, (Copy_u8Pin%16) );
+			GPIOB_BRR = 1 << (Copy_u8Pin%16) ;
 		} else if (u8Copy_u8Value == GPIO_TOG) {
 			TOG_BIT(GPIOB_ODR, (Copy_u8Pin%16) );
 		}
@@ -90,9 +90,9 @@ void GPIO_VidSetPinValue( u8 Copy_u8Pin , u8 u8Copy_u8Value) {
 	if (Copy_u8Pin >= PINC0 && Copy_u8Pin <= PINC15) {
 
 		if (u8Copy_u8Value == GPIO_HIGH) {
-			SET_BIT(GPIOC_ODR, (Copy_u8Pin%16) );
+			GPIOC_BSR = 1 << (Copy_u8Pin%16) ;
 		} else if (u8Copy_u8Value == GPIO_LOW) {
-			CLR_BIT(GPIOC_ODR, (Copy_u8Pin%16) );
+			GPIOC_BRR = 1 << (Copy_u8Pin%16) ;
 		} else if (u8Copy_u8Value == GPIO_TOG) {
 			TOG_BIT(GPIOC_ODR, (Copy_u8Pin%16) );
 		}
@@ -156,13 +156,37 @@ void GPIO_VidSetPortDirection(u8 Copy_u8Port, u32 u32Copy_u32PortMode) {
 void GPIO_VidSetPortValue(u8 Copy_u8Port, u32 u32Copy_u8Value) {
 	switch (Copy_u8Port) {
 	case GPIOA:
-		GPIOA_ODR = u32Copy_u8Value;
+		if (u32Copy_u8Value == PORT_HIGH) {
+			GPIOA_BSR = 0xFFFFFFFF ;
+		} else if (u32Copy_u8Value == PORT_LOW) {
+			GPIOA_BRR = 0xFFFFFFFF ;
+		} else if (u32Copy_u8Value == PORT_TOG) {
+			GPIOA_ODR ^= 0xFFFFFFFF ;
+		} else {
+			GPIOA_ODR = u32Copy_u8Value;
+		}
 		break;
 	case GPIOB:
-		GPIOB_ODR = u32Copy_u8Value;
+		if (u32Copy_u8Value == PORT_HIGH) {
+			GPIOB_BSR = 0xFFFFFFFF;
+		} else if (u32Copy_u8Value == PORT_LOW) {
+			GPIOB_BRR = 0xFFFFFFFF;
+		} else if (u32Copy_u8Value == PORT_TOG) {
+			GPIOB_ODR ^= 0xFFFFFFFF ;
+		} else {
+			GPIOB_ODR = u32Copy_u8Value;
+		}
 		break;
 	case GPIOC:
-		GPIOC_ODR = u32Copy_u8Value;
+		if (u32Copy_u8Value == PORT_HIGH) {
+			GPIOC_BSR = 0xFFFFFFFF;
+		} else if (u32Copy_u8Value == PORT_LOW) {
+			GPIOC_BRR = 0xFFFFFFFF;
+		} else if (u32Copy_u8Value == PORT_TOG) {
+			GPIOC_ODR ^= 0xFFFFFFFF ;
+		} else {
+			GPIOC_ODR = u32Copy_u8Value;
+		}
 		break;
 
 	}
