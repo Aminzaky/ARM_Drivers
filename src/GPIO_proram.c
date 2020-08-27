@@ -10,7 +10,7 @@
 #include "GPIO_private.h"
 #include "GPIO_config.h"
 
-void GPIO_VidSetPinDirection(u8 Copy_u8Pin, u8 u8Copy_u8Mode) {
+void GPIO_voidSetPinDirection(u8 Copy_u8Pin, u8 u8Copy_u8Mode) {
 
 	if (Copy_u8Pin >= PINA0 && Copy_u8Pin <= PINA15) {
 
@@ -71,7 +71,7 @@ void GPIO_VidSetPinDirection(u8 Copy_u8Pin, u8 u8Copy_u8Mode) {
 
 }
 
-void GPIO_VidSetPinValue( u8 Copy_u8Pin , u8 u8Copy_u8Value) {
+void GPIO_voidSetPinValue( u8 Copy_u8Pin , u8 u8Copy_u8Value) {
 
 	if (Copy_u8Pin >= PINA0 && Copy_u8Pin <= PINA15) {
 
@@ -141,7 +141,7 @@ u8 GPIO_u8GetPinValue( u8 Copy_u8Pin ) {
 
 }
 
-void GPIO_VidSetPortDirection(u8 Copy_u8Port, u32 u32Copy_u32PortMode) {
+void GPIO_voidSetPortDirection(u8 Copy_u8Port, u32 u32Copy_u32PortMode) {
 	switch (Copy_u8Port) {
 	case GPIOA:
 		GPIOA_CRL = u32Copy_u32PortMode;
@@ -170,7 +170,7 @@ void GPIO_VidSetPortDirection(u8 Copy_u8Port, u32 u32Copy_u32PortMode) {
 
 }
 
-void GPIO_VidSetPortValue(u8 Copy_u8Port, u32 u32Copy_u8Value) {
+void GPIO_voidSetPortValue(u8 Copy_u8Port, u32 u32Copy_u8Value) {
 	switch (Copy_u8Port) {
 	case GPIOA:
 		if (u32Copy_u8Value == PORT_HIGH) {
@@ -231,7 +231,7 @@ u32 GPIO_u32GetPortValue(u8 Copy_u8Port) {
 	return LOC_u32PortValue;
 }
 
-u8 GPIO_VidLockPinMode(u8 Copy_u8Pin) {
+u8 GPIO_u8LockPinMode(u8 Copy_u8Pin) {
 
 	u8 LOC_LCKValue = 0;
 
@@ -270,7 +270,7 @@ u8 GPIO_VidLockPinMode(u8 Copy_u8Pin) {
 	return LOC_LCKValue;
 }
 
-u8 GPIO_VidLockPortMode(u8 Copy_u8Port) {
+u8 GPIO_u8LockPortMode(u8 Copy_u8Port) {
 	u8 LOC_LCKValue = 0;
 	switch (Copy_u8Port) {
 	case GPIOA:

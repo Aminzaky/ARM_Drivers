@@ -3,7 +3,6 @@
 /* Version   : V01                                                               */
 /* Date      : 8 August 2020                                                     */
 /*********************************************************************************/
-
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 
@@ -11,19 +10,8 @@
 
 #include "RCC_interface.h"
 #include "RCC_private.h"
-
-
-void Delay (void)
-{
-	for(int i = 0 ; i < 600 ; i++ )
-{
-	for(int j = 0 ; j < 600 ; j++ )
-	{
-		asm("NOP");
-	}
-}
-
-}
+#include "STK_interface.h"
+#include "LED_interface.h"
 
 int main (void)
 {
@@ -31,27 +19,22 @@ int main (void)
 	    RCC_voidInitSysClock() ;
 		RCC_voidEnableClock(RCC_APB2 , RCC_PORTC) ;
 
-
-		GPIO_VidSetPinDirection(PINC13 , OUTPUT_SPEED_10MHZ_PP);
+		MSTK_voidInit();
+		LED_voidInit(PINC13);
 
 
 		while (1)
 		{
 
 
-			GPIO_VidSetPinValue( PINC13 , GPIO_HIGH);
+			LED_voidTogLed(PINC13);
 
 
 
-			 Delay();
+			MSTK_voidSetBusyWait(1000000);
 
 
 
-			GPIO_VidSetPinValue( PINC13  , GPIO_LOW);
-
-
-
-			 Delay();
 
 		}
 

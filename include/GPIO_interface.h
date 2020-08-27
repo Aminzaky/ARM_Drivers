@@ -124,14 +124,14 @@
 #define OUTPUT_SPEED_PORT_50MHZ_AFOD       ( (u32)0xFFFFFFFF )           // 0b11111111111111111111111111111111
 
 // PIN specific APIs
-void GPIO_VidSetPinDirection(u8 Copy_u8Pin, u8 u8Copy_u8Mode);
-void GPIO_VidSetPinValue(u8 Copy_u8Pin, u8 u8Copy_u8Value);
+void GPIO_voidSetPinDirection(u8 Copy_u8Pin, u8 u8Copy_u8Mode);
+void GPIO_voidSetPinValue(u8 Copy_u8Pin, u8 u8Copy_u8Value);
 u8 GPIO_u8GetPinValue(u8 Copy_u8Pin);
-u8 GPIO_VidLockPinMode(u8 Copy_u8Pin);
+u8 GPIO_u8LockPinMode(u8 Copy_u8Pin);
 // PORT specific APIs
-void GPIO_VidSetPortDirection(u8 Copy_u8Port, u32 u32Copy_u32PortMode);
-void GPIO_VidSetPortValue(u8 Copy_u8Port, u32 u32Copy_u8Value);
+void GPIO_voidSetPortDirection(u8 Copy_u8Port, u32 u32Copy_u32PortMode);
+void GPIO_voidSetPortValue(u8 Copy_u8Port, u32 u32Copy_u8Value);
 u32 GPIO_u32GetPortValue(u8 Copy_u8Port);
-u8 GPIO_VidLockPortMode(u8 Copy_u8Port);
+u8 GPIO_u8LockPortMode(u8 Copy_u8Port);
 #endif
 
