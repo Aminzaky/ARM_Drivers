@@ -1533,6 +1533,21 @@ Discarded input sections
  .comment       0x00000000       0x7f ./src/SEGMENT7_program.o
  .ARM.attributes
                 0x00000000       0x33 ./src/SEGMENT7_program.o
+ .group         0x00000000        0xc ./src/STK_program.o
+ .text          0x00000000        0x0 ./src/STK_program.o
+ .data          0x00000000        0x0 ./src/STK_program.o
+ .bss           0x00000000        0x0 ./src/STK_program.o
+ .debug_info    0x00000000       0x21 ./src/STK_program.o
+ .debug_abbrev  0x00000000       0x13 ./src/STK_program.o
+ .debug_aranges
+                0x00000000       0x18 ./src/STK_program.o
+ .debug_macro   0x00000000       0x11 ./src/STK_program.o
+ .debug_macro   0x00000000      0xa6c ./src/STK_program.o
+ .debug_line    0x00000000       0x35 ./src/STK_program.o
+ .debug_str     0x00000000     0x2d33 ./src/STK_program.o
+ .comment       0x00000000       0x7f ./src/STK_program.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/STK_program.o
  .group         0x00000000        0xc ./src/SWITCH_program.o
  .text          0x00000000        0x0 ./src/SWITCH_program.o
  .data          0x00000000        0x0 ./src/SWITCH_program.o
@@ -1654,6 +1669,7 @@ LOAD ./src/LED_program.o
 LOAD ./src/NVIC_program.o
 LOAD ./src/RCC_program.o
 LOAD ./src/SEGMENT7_program.o
+LOAD ./src/STK_program.o
 LOAD ./src/SWITCH_program.o
 LOAD ./src/main.o
 LOAD d:/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libstdc++_nano.a

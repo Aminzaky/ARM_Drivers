@@ -11,6 +11,7 @@ C_SRCS += \
 ../src/NVIC_program.c \
 ../src/RCC_program.c \
 ../src/SEGMENT7_program.c \
+../src/STK_program.c \
 ../src/SWITCH_program.c \
 ../src/main.c 
 
@@ -22,6 +23,7 @@ OBJS += \
 ./src/NVIC_program.o \
 ./src/RCC_program.o \
 ./src/SEGMENT7_program.o \
+./src/STK_program.o \
 ./src/SWITCH_program.o \
 ./src/main.o 
 
@@ -33,6 +35,7 @@ C_DEPS += \
 ./src/NVIC_program.d \
 ./src/RCC_program.d \
 ./src/SEGMENT7_program.d \
+./src/STK_program.d \
 ./src/SWITCH_program.d \
 ./src/main.d 
 
