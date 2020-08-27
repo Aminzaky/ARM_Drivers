@@ -4,24 +4,33 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/AFIO_program.c \
+../src/EXTI_program.c \
 ../src/GPIO_proram.c \
 ../src/LED_program.c \
+../src/NVIC_program.c \
 ../src/RCC_program.c \
 ../src/SEGMENT7_program.c \
 ../src/SWITCH_program.c \
 ../src/main.c 
 
 OBJS += \
+./src/AFIO_program.o \
+./src/EXTI_program.o \
 ./src/GPIO_proram.o \
 ./src/LED_program.o \
+./src/NVIC_program.o \
 ./src/RCC_program.o \
 ./src/SEGMENT7_program.o \
 ./src/SWITCH_program.o \
 ./src/main.o 
 
 C_DEPS += \
+./src/AFIO_program.d \
+./src/EXTI_program.d \
 ./src/GPIO_proram.d \
 ./src/LED_program.d \
+./src/NVIC_program.d \
 ./src/RCC_program.d \
 ./src/SEGMENT7_program.d \
 ./src/SWITCH_program.d \

@@ -10,12 +10,18 @@
 #define GPIO_LOW     0
 #define GPIO_TOG     2
 
+#define PULL_UP 1
+#define PULL_DOWN 0
+
+#define PULL_UP_PORT 0xFFFFFFFF
+#define PULL_DOWN_PORT 0x00000000
+
 #define HIGH_PORTL 0x00FF
 #define HIGH_PORTH 0xFF00
 
 #define PORT_HIGH  0xFFFFFFFF
 #define PORT_LOW   0x00000000
-#define PORT_TOG   0xAAAAAAAA
+#define PORT_TOG   0xFFFFFFFE
 
 #define GPIOA   0
 #define GPIOB   1
@@ -115,17 +121,17 @@
 #define OUTPUT_SPEED_PORT_50MHZ_PP         ( (u32)0x33333333 )           // 0b00110011001100110011001100110011
 #define OUTPUT_SPEED_PORT_50MHZ_OD         ( (u32)0x77777777 )           // 0b01110111011101110111011101110111
 #define OUTPUT_SPEED_PORT_50MHZ_AFPP       ( (u32)0xBBBBBBBB )           // 0b10111011101110111011101110111011
-#define OUTPUT_SPEED_PORT_50MHZ_AFOD       ( (u32)0xFFFFFFFF )‬           // 0b11111111111111111111111111111111
+#define OUTPUT_SPEED_PORT_50MHZ_AFOD       ( (u32)0xFFFFFFFF )           // 0b11111111111111111111111111111111
 
 // PIN specific APIs
 void GPIO_VidSetPinDirection(u8 Copy_u8Pin, u8 u8Copy_u8Mode);
 void GPIO_VidSetPinValue(u8 Copy_u8Pin, u8 u8Copy_u8Value);
 u8 GPIO_u8GetPinValue(u8 Copy_u8Pin);
-
+u8 GPIO_VidLockPinMode(u8 Copy_u8Pin);
 // PORT specific APIs
 void GPIO_VidSetPortDirection(u8 Copy_u8Port, u32 u32Copy_u32PortMode);
 void GPIO_VidSetPortValue(u8 Copy_u8Port, u32 u32Copy_u8Value);
 u32 GPIO_u32GetPortValue(u8 Copy_u8Port);
-
+u8 GPIO_VidLockPortMode(u8 Copy_u8Port);
 #endif
 

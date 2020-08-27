@@ -28,7 +28,7 @@ void Delay (void)
 int main (void)
 {
 
-	RCC_voidInitSysClock() ;
+	    RCC_voidInitSysClock() ;
 		RCC_voidEnableClock(RCC_APB2 , RCC_PORTC) ;
 
 
