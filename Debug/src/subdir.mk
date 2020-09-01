@@ -7,6 +7,7 @@ C_SRCS += \
 ../src/AFIO_program.c \
 ../src/EXTI_program.c \
 ../src/GPIO_proram.c \
+../src/LEDMRX_program.c \
 ../src/LED_program.c \
 ../src/NVIC_program.c \
 ../src/RCC_program.c \
@@ -19,6 +20,7 @@ OBJS += \
 ./src/AFIO_program.o \
 ./src/EXTI_program.o \
 ./src/GPIO_proram.o \
+./src/LEDMRX_program.o \
 ./src/LED_program.o \
 ./src/NVIC_program.o \
 ./src/RCC_program.o \
@@ -31,6 +33,7 @@ C_DEPS += \
 ./src/AFIO_program.d \
 ./src/EXTI_program.d \
 ./src/GPIO_proram.d \
+./src/LEDMRX_program.d \
 ./src/LED_program.d \
 ./src/NVIC_program.d \
 ./src/RCC_program.d \

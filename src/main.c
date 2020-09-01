@@ -7,36 +7,27 @@
 #include "BIT_MATH.h"
 
 #include "GPIO_interface.h"
-
 #include "RCC_interface.h"
-#include "RCC_private.h"
 #include "STK_interface.h"
-#include "LED_interface.h"
+
+#include "LEDMRX_interface.h"
+
+u8 DataArray[34] = { 0, 62, 72, 72, 72, 62, 0, 0, 126, 32, 16, 32, 126, 0, 0, 66, 126, 66, 0, 0, 126, 32, 24, 4, 126, 0, 0, 62, 72, 72, 72, 62, 0 , 0};
+
 
 int main (void)
 {
 
 	    RCC_voidInitSysClock() ;
-		RCC_voidEnableClock(RCC_APB2 , RCC_PORTC) ;
+
+		RCC_voidEnableClock(RCC_APB2 , RCC_PORTA) ;
+		RCC_voidEnableClock(RCC_APB2 , RCC_PORTB) ;
 
 		MSTK_voidInit();
-		LED_voidInit(PINC13);
+		LEDMRX_voidInit();
 
+        LEDMRX_voidAnimation(DataArray);
 
-		while (1)
-		{
-
-
-			LED_voidTogLed(PINC13);
-
-
-
-			MSTK_voidSetBusyWait(1000000);
-
-
-
-
-		}
 
 
 		return 0 ;
