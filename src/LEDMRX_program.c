@@ -1,5 +1,5 @@
 /********************************************************************/
-/* Author	: Amin Zaky								          	 	*/
+/* Author	: Amin Zaky                                             */
 /* Date		: 31 August 2020                                        */
 /* Version	: V01                                                	*/
 /********************************************************************/
@@ -15,10 +15,10 @@
 #include "LEDMRX_config.h"
 
 u8 rows[8] = { LEDMRX_ROW0, LEDMRX_ROW1, LEDMRX_ROW2, LEDMRX_ROW3, LEDMRX_ROW4,
-		LEDMRX_ROW5, LEDMRX_ROW6, LEDMRX_ROW7 };
-u8 columns[8] = { LEDMRX_COLUMN0, LEDMRX_COLUMN1, LEDMRX_COLUMN2, LEDMRX_COLUMN3,
+LEDMRX_ROW5, LEDMRX_ROW6, LEDMRX_ROW7 };
+u8 columns[8] = { LEDMRX_COLUMN0, LEDMRX_COLUMN1, LEDMRX_COLUMN2,
+		LEDMRX_COLUMN3,
 		LEDMRX_COLUMN4, LEDMRX_COLUMN5, LEDMRX_COLUMN6, LEDMRX_COLUMN7 };
-
 
 void LEDMRX_voidInit(void) {
 	for (u8 i = 0; i <= 7; i++) {
@@ -27,12 +27,11 @@ void LEDMRX_voidInit(void) {
 	}
 }
 
-
 void LEDMRX_voidDisplay(u8 *Copy_u8Data) {
-	for(u8 i =0; i <= 7; i++){
+	for (u8 i = 0; i <= 7; i++) {
 		LEDMRX_voidSetColumns();
 		LEDMRX_voidSetRowValue(Copy_u8Data[i]);
-		GPIO_voidSetPinValue(columns[i],GPIO_LOW);
+		GPIO_voidSetPinValue(columns[i], GPIO_LOW);
 		MSTK_voidSetBusyWait(2500);
 	}
 }
@@ -65,6 +64,7 @@ void LEDMRX_voidAnimation(u8 *Copy_u8Data) {
 
 	}
 }
+
 static void LEDMRX_voidSetColumns(void) {
 	for (u8 j = 0; j <= 7; j++) {
 		GPIO_voidSetPinValue(columns[j], GPIO_HIGH);
@@ -78,5 +78,4 @@ static void LEDMRX_voidSetRowValue(u8 Copy_u8Data) {
 		GPIO_voidSetPinValue(rows[k], LOC_u8BIT);
 	}
 }
-
 

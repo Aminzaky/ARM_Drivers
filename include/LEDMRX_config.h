@@ -1,5 +1,5 @@
 /********************************************************************/
-/* Author	: Amin Zaky      								 	 	*/
+/* Author	: Amin Zaky      								    	*/
 /* Date		: 31 August 2020                                        */
 /* Version	: V01                                                	*/
 /********************************************************************/
@@ -8,7 +8,7 @@
 #define LEDMRX_CONFIG_H
 
 /*Please write pin */
-#define LEDMRX_ROW0		PINA0
+#define LEDMRX_ROW0	    PINA0
 #define LEDMRX_ROW1  	PINA1
 #define LEDMRX_ROW2     PINA2
 #define LEDMRX_ROW3     PINA3
