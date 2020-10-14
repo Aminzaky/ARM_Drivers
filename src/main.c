@@ -28,7 +28,5 @@ int main (void)
 
         LEDMRX_voidAnimation(DataArray);
 
-
-
 		return 0 ;
 }
